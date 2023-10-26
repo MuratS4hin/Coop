@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="~/Coop.styles.css" asp-append-version="true" />
 </head>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4 header">Welcome</h1>
 </div>
 <div>
-    <div class="square"></div>
+    <div class="square text-center">
+        <ul>
+            @foreach (var item in Model.Animals)
+            {
+                <li>@item.Id</li>
+            }
+        </ul>
+    </div>
 </div>

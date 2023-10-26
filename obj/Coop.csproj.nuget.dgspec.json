@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop\\Coop\\Coop.csproj": {}
+    "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop Simulation\\Coop\\Coop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop\\Coop\\Coop.csproj": {
+    "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop Simulation\\Coop\\Coop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop\\Coop\\Coop.csproj",
+        "projectUniqueName": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop Simulation\\Coop\\Coop.csproj",
         "projectName": "Coop",
-        "projectPath": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop\\Coop\\Coop.csproj",
+        "projectPath": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop Simulation\\Coop\\Coop.csproj",
         "packagesPath": "C:\\Users\\sahmu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop\\Coop\\obj\\",
+        "outputPath": "C:\\Users\\sahmu\\OneDrive\\Masaüstü\\mş\\SoftwareProjects\\C#\\Pamelosoft\\Coop Simulation\\Coop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sahmu\\AppData\\Roaming\\NuGet\\NuGet.Config",

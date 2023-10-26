@@ -25,3 +25,30 @@ C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop\Coop\
 C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop\Coop\obj\Debug\net6.0\Coop.genruntimeconfig.cache
 C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop\Coop\obj\Debug\net6.0\ref\Coop.dll
 C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop\Coop\obj\Debug\net6.0\scopedcss\Pages\Index.cshtml.rz.scp.css
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\appsettings.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.staticwebassets.runtime.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.exe
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.deps.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.runtimeconfig.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.dll
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\bin\Debug\net6.0\Coop.pdb
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.csproj.AssemblyReference.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.AssemblyInfoInputs.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.AssemblyInfo.cs
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.csproj.CoreCompileInputs.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.RazorAssemblyInfo.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.RazorAssemblyInfo.cs
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\scopedcss\Pages\Index.cshtml.rz.scp.css
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\scopedcss\bundle\Coop.styles.css
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\scopedcss\projectbundle\Coop.bundle.scp.css
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.dll
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\refint\Coop.dll
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.pdb
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\Coop.genruntimeconfig.cache
+C:\Users\sahmu\OneDrive\Masaüstü\mş\SoftwareProjects\C#\Pamelosoft\Coop Simulation\Coop\obj\Debug\net6.0\ref\Coop.dll
