@@ -6,8 +6,52 @@ namespace Coop.Services;
 public class Simulation : ISimulation
 {
     private static readonly Random random = new Random();
+    private long LastId { get; set; }
 
-    public Simulation() { }
+    private int AverageDeathAge { get; set; }
+
+    public Simulation()
+    {
+        LastId = 2;
+        AverageDeathAge = 5;
+    }
+
+    public List<Animals> Loop(List<Animals> animals, IEnumerable<IGrouping<string, Animals>> groupedAnimals)
+    {
+        foreach (IGrouping<string, Animals> group in groupedAnimals)
+        {
+            foreach (Animals animal in group)
+            {
+                if (animal.Age >= 1 && animal.Sex == "Male")
+                {
+                    bool fertilityProbability = GenerateTrueWithProbability(0.7);
+                    var female = animals.FirstOrDefault(x => x.Sex == "Female" && x.IsPragnent == false && fertilityProbability == true);
+                    if (female != null)
+                        animals.First(x => x.Id == female.Id).IsPragnent = true;
+                }
+                else if (animal.Sex == "Female" && CheckBirth(animal))
+                {
+                    animals.First(x => x.Id == animal.Id).IsPragnent = false;
+                    int numberOfChild = NumberOfChild();
+                    for(int i = 0; i<numberOfChild; i++)
+                    {
+                        LastId += 1;
+                        bool isFemale = GenerateTrueWithProbability(0.7);
+                        string Sex = "Male";
+                        if (isFemale)
+                            Sex = "Female";
+                        animals.Add(new Animals() { Id = LastId, Species = animal.Species, Sex = Sex, Age = 0, IsPragnent = false });
+                    }
+                }
+                animals.First(x => x.Id == animal.Id).Age += 1;
+
+                if (CheckDeath(animal, animals.Count))
+                    animals.RemoveAll(x => x.Id == animal.Id);
+            }
+        }
+
+        return animals;
+    }
 
     public bool GenerateTrueWithProbability(double probability)
     {
@@ -26,5 +70,34 @@ public class Simulation : ISimulation
             return true;
         else
             return false;
-    }    
+    }
+
+    public bool CheckDeath(Animals animal, int numberOfAnimals)
+    {
+        if (animal.Age > AverageDeathAge || numberOfAnimals > 50)
+        {
+            double probability = Math.Abs(AverageDeathAge - animal.Age + 1) * 0.1;
+            if (numberOfAnimals > 50)
+                probability = probability * numberOfAnimals / 50;
+            if(probability > 1)
+                probability = 1;
+            if (GenerateTrueWithProbability(probability))
+                return true;
+        }
+        return false;
+    }
+
+    public int NumberOfChild()
+    {
+        double mean = 5.5; // The mean value between 1 and 10
+        double stdDev = 2.0; // Adjust the standard deviation as needed
+        double u1 = 1.0 - random.NextDouble(); // Uniform(0,1] random doubles
+        double u2 = 1.0 - random.NextDouble();
+        double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); // Box-Muller transform
+        double randNormal = mean + stdDev * randStdNormal; // Adjust for desired mean and standard deviation
+        randNormal = Math.Max(1, Math.Min(10, randNormal)); // Clip the values to be within the range [1, 10]
+
+        return (int)Math.Round(randNormal);
+
+    }
 }

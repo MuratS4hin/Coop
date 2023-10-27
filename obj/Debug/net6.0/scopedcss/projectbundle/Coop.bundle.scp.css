@@ -1,15 +1,27 @@
 /* _content/Coop/Pages/Index.cshtml.rz.scp.css */
 .square[b-49lm0xremc] {
     width: 60%;
-    padding-bottom: 30%;
     border: 2px solid #000;
     margin: auto;
-    background: linear-gradient(90deg, rgba(154,154,154,0.4009978991596639) 0%, rgba(154,154,154,0.39539565826330536) 100%);
+    background: white;
 }
 
 .header[b-49lm0xremc] {
     margin-bottom: 30px;
     margin-top: 30px;
+}
+
+.emoji[b-49lm0xremc] {
+    margin: 16px;
+}
+
+.list[b-49lm0xremc]{
+    margin: 16px;
+    padding: 16px;
+}
+
+.number[b-49lm0xremc] {
+    color: white;
 }
 /* _content/Coop/Pages/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification

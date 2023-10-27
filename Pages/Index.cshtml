@@ -10,12 +10,44 @@
     <h1 class="display-4 header">Welcome</h1>
 </div>
 <div>
-    <div class="square text-center">
-        <ul>
-            @foreach (var item in Model.Animals)
-            {
-                <li>@item.Id</li>
-            }
-        </ul>
+    <div class="square">
+        <div style="width: 80%; margin: 0 auto;">
+            <canvas id="myLineChart"></canvas>
+        </div>
     </div>
 </div>
+
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('myLineChart').getContext('2d');
+
+        var data = {
+            labels: @Html.Raw(Json.Serialize(@Model.ChartData.Labels)),
+            datasets: [{
+                label: "Data Set 1",
+                data: @Html.Raw(Json.Serialize(Model.ChartData.Values)),
+                fill: false, // To create a line chart, set fill to false
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        };
+
+        var options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line', // Set the chart type to 'line'
+            data: data,
+            options: options
+        });
+    </script>
+}
