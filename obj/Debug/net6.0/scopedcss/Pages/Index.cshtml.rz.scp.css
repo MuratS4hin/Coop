@@ -19,6 +19,8 @@
     padding: 16px;
 }
 
-.number[b-49lm0xremc] {
-    color: white;
+.center[b-49lm0xremc] {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
 }

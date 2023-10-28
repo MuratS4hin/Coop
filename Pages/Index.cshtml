@@ -7,23 +7,49 @@
     <link rel="stylesheet" href="~/Coop.styles.css" asp-append-version="true" />
 </head>
 <div class="text-center">
-    <h1 class="display-4 header">Welcome</h1>
-</div>
-<div>
-    <div class="square">
-        <div style="width: 80%; margin: 0 auto;">
-            <canvas id="myLineChart"></canvas>
-        </div>
-    </div>
+    <h1 class="display-4 header">Welcome to Coop Simulator</h1>
 </div>
 
+@if (@Model.ShowForm)
+{
+    <div class="center">
+        <p>Give the Number of Days to Pass</p>
+    </div>
+    <div class="center">
+        <form method="post" asp-page="CoopSim">
+            <input type="number" name="Loop" asp-for="Loop" />
+            <button type="submit" name="action" value="LoopNumber">Submit</button>
+        </form>
+    </div>
+
+}
+
+@if (!@Model.ShowForm)
+{
+    <div class="center">
+        <p>Press the right arrow to see detailed informations:</p>
+    </div>
+    <div>
+        <div class="square">
+            <div style="width: 80%; margin: 0 auto;">
+                <canvas id="coopChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <form method="post" asp-page="CoopSim">
+            <button type="submit" name="action" value="Regenerate">Regenerate Simulation</button>
+            <button type="submit" name="action" value="EntDiffNum">Enter Different Number</button>
+        </form>
+    </div>
+}
 
 
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('myLineChart').getContext('2d');
+        var ctx = document.getElementById('coopChart').getContext('2d');
 
         var data = {
             labels: @Html.Raw(Json.Serialize(@Model.ChartData.Labels)),
@@ -32,19 +58,32 @@
                 data: @Html.Raw(Json.Serialize(Model.ChartData.Values)),
                 fill: false, // To create a line chart, set fill to false
                 borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2
+                borderWidth: 2,
+                tension: 0.4,
+                pointStyle: 'dot',
+                pointRadius: 1,
             }]
         };
 
         var options = {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Population', // Label for the y-axis
+                    },
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Days', // Label for the x-axis
+                    },
                 }
-            }
+            },
         };
 
-        var myLineChart = new Chart(ctx, {
+        var coopChart = new Chart(ctx, {
             type: 'line', // Set the chart type to 'line'
             data: data,
             options: options

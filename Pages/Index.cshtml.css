@@ -19,6 +19,8 @@
     padding: 16px;
 }
 
-.number {
-    color: white;
+.center {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
 }

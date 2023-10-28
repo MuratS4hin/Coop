@@ -7,13 +7,14 @@ public class Simulation : ISimulation
 {
     private static readonly Random random = new Random();
     private long LastId { get; set; }
-
     private int AverageDeathAge { get; set; }
+    private int OptimalCageCapasity { get; set; }
 
     public Simulation()
     {
         LastId = 2;
         AverageDeathAge = 5;
+        OptimalCageCapasity = 50;
     }
 
     public List<Animals> Loop(List<Animals> animals, IEnumerable<IGrouping<string, Animals>> groupedAnimals)
@@ -74,13 +75,19 @@ public class Simulation : ISimulation
 
     public bool CheckDeath(Animals animal, int numberOfAnimals)
     {
-        if (animal.Age > AverageDeathAge || numberOfAnimals > 50)
+        if (animal.Age > AverageDeathAge || numberOfAnimals > OptimalCageCapasity)
         {
-            double probability = Math.Abs(AverageDeathAge - animal.Age + 1) * 0.1;
-            if (numberOfAnimals > 50)
-                probability = probability * numberOfAnimals / 50;
+            double probability = Math.Abs(AverageDeathAge - animal.Age) * 0.2;
+            if (numberOfAnimals > OptimalCageCapasity)
+                probability = probability * numberOfAnimals / OptimalCageCapasity;
             if(probability > 1)
                 probability = 1;
+            if (GenerateTrueWithProbability(probability))
+                return true;
+        }
+        else if (animal.Age < AverageDeathAge && numberOfAnimals > 2)
+        {
+            double probability = 0.3;
             if (GenerateTrueWithProbability(probability))
                 return true;
         }
