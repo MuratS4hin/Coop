@@ -39,6 +39,8 @@ public class IndexModel : PageModel
     {        
         if(action == "LoopNumber")
         {
+            if (Loop == "0" || Loop == null)
+                Loop = "1";
             TempData["LoopValue"] = Loop; //Preserves the Input Value for regenerating            
             ShowForm = false;
             StartSimulation();
@@ -61,8 +63,6 @@ public class IndexModel : PageModel
 
     public void StartSimulation()
     {
-        if (Loop == "0" || Loop == null)
-            Loop = "1";
         int counter = 0;
         ChartData.Labels.Add(counter.ToString());
         ChartData.Values.Add(Animals.Count());
