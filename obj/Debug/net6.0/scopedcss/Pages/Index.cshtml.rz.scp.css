@@ -1,5 +1,5 @@
 .square[b-49lm0xremc] {
-    width: 60%;
+    width: 80%;
     border: 2px solid #000;
     margin: auto;
     background: white;
@@ -7,6 +7,10 @@
 
 .header[b-49lm0xremc] {
     margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.sub_header[b-49lm0xremc] {
     margin-top: 30px;
 }
 

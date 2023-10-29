@@ -26,8 +26,8 @@
 
 @if (!@Model.ShowForm)
 {
-    <div class="center">
-        <p>Press the right arrow to see detailed informations:</p>
+    <div class="center sub_header">
+        <h3>Graph Of Animals:</h3>
     </div>
     <div>
         <div class="square">
@@ -41,6 +41,19 @@
             <button type="submit" name="action" value="Regenerate">Regenerate Simulation</button>
             <button type="submit" name="action" value="EntDiffNum">Enter Different Number</button>
         </form>
+    </div>
+
+    <div class="center sub_header">
+        <h3>Informations About Animals:</h3>
+    </div>
+    <div class="center">
+        <span>
+            <p>- Max Population: @Model.ChartData.MaxPopulation</p>
+            <p>- Total Male Population: @Model.ChartData.TotalMaleNumber</p>
+            <p>- Maximum Male Age: @Model.ChartData.MaxMaleAge</p>
+            <p>- Total Female Population: @Model.ChartData.TotalFemaleNumber</p>
+            <p>- Maximum Female Age: @Model.ChartData.MaxFemaleAge</p>
+        </span>
     </div>
 }
 
