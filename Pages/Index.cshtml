@@ -67,7 +67,7 @@
         var data = {
             labels: @Html.Raw(Json.Serialize(@Model.ChartData.Labels)),
             datasets: [{
-                label: "Data Set 1",
+                label: "Number Of Animals",
                 data: @Html.Raw(Json.Serialize(Model.ChartData.Values)),
                 fill: false, // To create a line chart, set fill to false
                 borderColor: 'rgba(75, 192, 192, 1)',
