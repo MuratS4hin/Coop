@@ -15,9 +15,11 @@ public class IndexModel : PageModel
     public ChartData ChartData { get; set; }
     private int OptimalCageCapasity { get; set; }
     public bool ShowForm { get; set; }
+    public List<string> Species { get; set; }
 
     public IndexModel(ISimulation simulation)
     {
+        Species = new();
         Animals = ReadCsv();
         _simulation = simulation;
         ShowForm = true;
@@ -36,8 +38,8 @@ public class IndexModel : PageModel
     }
 
     public IActionResult OnPost(string action)
-    {        
-        if(action == "LoopNumber")
+    {
+        if (action == "LoopNumber")
         {
             if (Loop == "0" || Loop == null)
                 Loop = "1";
@@ -45,7 +47,7 @@ public class IndexModel : PageModel
             ShowForm = false;
             StartSimulation();
         }
-        else if(action == "Regenerate")
+        else if (action == "Regenerate")
         {
             //if (TempData["LoopValue"] is int loopValue)
             Loop = TempData["LoopValue"].ToString(); //Gets the Input Value
@@ -115,7 +117,7 @@ public class IndexModel : PageModel
             while (!parser.EndOfData)
             {
                 string[] fields = parser.ReadFields();
-                if(fields.Length == 2 && fields[0] == "OptimalCageCapacity")
+                if (fields.Length == 2 && fields[0] == "OptimalCageCapacity")
                 {
                     OptimalCageCapasity = int.Parse(fields[1]);
                 }
@@ -131,6 +133,8 @@ public class IndexModel : PageModel
                         IsPregnant = bool.Parse(fields[5])
                     };
                     AnimalsCsv.Add(animal);
+                    if (Species == null || !Species.Exists(x => x == animal.Species))
+                        Species.Add(animal.Species);
                 }
                 else
                 {

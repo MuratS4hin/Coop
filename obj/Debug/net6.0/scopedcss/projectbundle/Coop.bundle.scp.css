@@ -19,7 +19,7 @@
     margin: 16px;
 }
 
-.list[b-49lm0xremc]{
+.list[b-49lm0xremc] {
     margin: 16px;
     padding: 16px;
 }
@@ -28,6 +28,30 @@
     display: flex;
     justify-content: center; /* Horizontal centering */
     align-items: center; /* Vertical centering */
+}
+
+.underline[b-49lm0xremc] {
+    text-decoration: underline;
+}
+
+.container[b-49lm0xremc] {
+    width: 60%;
+    border: 2px solid #000;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 300px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "left right";
+}
+
+
+.right[b-49lm0xremc] {
+    grid-area: right;
+}
+
+.left[b-49lm0xremc] {
+    grid-area: left;
 }
 /* _content/Coop/Pages/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
