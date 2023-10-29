@@ -5,4 +5,4 @@ Id,Species,Sex,Age,AverageDeathAge,IsPregnant
 3,Elephant,Male,1,5,False
 4,Elephant,Female,1,5,False
 
-OptimalCageCapacity,20
+OptimalCageCapacity,50

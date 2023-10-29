@@ -73,7 +73,7 @@ public class Simulation : ISimulation
     {
         if (animal.Age > animal.AverageDeathAge || numberOfAnimals > OptimalCageCapasity)
         {
-            double probability = Math.Abs(animal.AverageDeathAge - animal.Age) * 0.2;
+            double probability = Math.Abs(animal.AverageDeathAge - animal.Age) * 0.3;
             if (numberOfAnimals > OptimalCageCapasity)
                 probability = probability * numberOfAnimals / OptimalCageCapasity;
             if (probability > 1)
