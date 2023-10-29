@@ -7,18 +7,14 @@ public class Simulation : ISimulation
 {
     private static readonly Random random = new Random();
     private long LastId { get; set; }
-    private int AverageDeathAge { get; set; }
     private int OptimalCageCapasity { get; set; }
 
-    public Simulation()
-    {
-        LastId = 2;
-        AverageDeathAge = 5;
-        OptimalCageCapasity = 50;
-    }
+    public Simulation() { }
 
-    public List<Animals> Loop(List<Animals> animals, IEnumerable<IGrouping<string, Animals>> groupedAnimals)
+    public List<Animals> Loop(List<Animals> animals, IEnumerable<IGrouping<string, Animals>> groupedAnimals, int optimalCageCapasity)
     {
+        LastId = animals.Count > 0 ? (int)animals?.MaxBy(x => x.Id)?.Id : 0;
+        OptimalCageCapasity = optimalCageCapasity;
         foreach (IGrouping<string, Animals> group in groupedAnimals)
         {
             foreach (Animals animal in group)
@@ -26,22 +22,22 @@ public class Simulation : ISimulation
                 if (animal.Age >= 1 && animal.Sex == "Male")
                 {
                     bool fertilityProbability = GenerateTrueWithProbability(0.7);
-                    var female = animals.FirstOrDefault(x => x.Sex == "Female" && x.IsPragnent == false && fertilityProbability == true);
+                    var female = animals.FirstOrDefault(x => x.Sex == "Female" && x.IsPregnant == false && fertilityProbability == true);
                     if (female != null)
-                        animals.First(x => x.Id == female.Id).IsPragnent = true;
+                        animals.First(x => x.Id == female.Id).IsPregnant = true;
                 }
                 else if (animal.Sex == "Female" && CheckBirth(animal))
                 {
-                    animals.First(x => x.Id == animal.Id).IsPragnent = false;
+                    animals.First(x => x.Id == animal.Id).IsPregnant = false;
                     int numberOfChild = NumberOfChild();
-                    for(int i = 0; i<numberOfChild; i++)
+                    for (int i = 0; i < numberOfChild; i++)
                     {
                         LastId += 1;
                         bool isFemale = GenerateTrueWithProbability(0.7);
                         string Sex = "Male";
                         if (isFemale)
                             Sex = "Female";
-                        animals.Add(new Animals() { Id = LastId, Species = animal.Species, Sex = Sex, Age = 0, IsPragnent = false });
+                        animals.Add(new Animals() { Id = LastId, Species = animal.Species, Sex = Sex, Age = 0, IsPregnant = false, AverageDeathAge = animal.AverageDeathAge });
                     }
                 }
                 animals.First(x => x.Id == animal.Id).Age += 1;
@@ -67,7 +63,7 @@ public class Simulation : ISimulation
 
     public bool CheckBirth(Animals animal)
     {
-        if (animal.IsPragnent == true)
+        if (animal.IsPregnant == true)
             return true;
         else
             return false;
@@ -75,17 +71,17 @@ public class Simulation : ISimulation
 
     public bool CheckDeath(Animals animal, int numberOfAnimals)
     {
-        if (animal.Age > AverageDeathAge || numberOfAnimals > OptimalCageCapasity)
+        if (animal.Age > animal.AverageDeathAge || numberOfAnimals > OptimalCageCapasity)
         {
-            double probability = Math.Abs(AverageDeathAge - animal.Age) * 0.2;
+            double probability = Math.Abs(animal.AverageDeathAge - animal.Age) * 0.2;
             if (numberOfAnimals > OptimalCageCapasity)
                 probability = probability * numberOfAnimals / OptimalCageCapasity;
-            if(probability > 1)
+            if (probability > 1)
                 probability = 1;
             if (GenerateTrueWithProbability(probability))
                 return true;
         }
-        else if (animal.Age < AverageDeathAge && numberOfAnimals > 2)
+        else if (animal.Age < animal.AverageDeathAge && numberOfAnimals > 2)
         {
             double probability = 0.3;
             if (GenerateTrueWithProbability(probability))

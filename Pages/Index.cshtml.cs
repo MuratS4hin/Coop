@@ -2,6 +2,7 @@
 using Coop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Coop.Pages;
 
@@ -12,15 +13,12 @@ public class IndexModel : PageModel
     public List<Animals> Animals { get; set; }
     private ISimulation _simulation { get; set; }
     public ChartData ChartData { get; set; }
+    private int OptimalCageCapasity { get; set; }
     public bool ShowForm { get; set; }
 
     public IndexModel(ISimulation simulation)
     {
-        Animals = new List<Animals>
-        {
-            new Animals { Id = 1, Species = "Rabbit", Sex = "Male", Age = 1 , IsPragnent = false },
-            new Animals { Id = 2, Species = "Rabbit", Sex = "Female", Age = 1, IsPragnent = false },
-        };
+        Animals = ReadCsv();
         _simulation = simulation;
         ShowForm = true;
 
@@ -72,7 +70,7 @@ public class IndexModel : PageModel
         while (true)
         {
             IEnumerable<IGrouping<string, Animals>> groupedAnimals = Animals.GroupBy(animal => animal.Species);
-            Animals = _simulation.Loop(Animals, groupedAnimals);
+            Animals = _simulation.Loop(Animals, groupedAnimals, OptimalCageCapasity);
             counter++;
 
             #region Set ChartData
@@ -94,5 +92,52 @@ public class IndexModel : PageModel
         ChartData.TotalMaleNumber = Animals.FindAll(x => x.Sex == "Male").Count();
         ChartData.TotalFemaleNumber = Animals.FindAll(x => x.Sex == "Female").Count();
         #endregion
+    }
+
+    public List<Animals> ReadCsv()
+    {
+        string filePath = "configuration.txt"; // Update the file path to your CSV file
+
+        List<Animals> AnimalsCsv = new List<Animals>();
+        Console.WriteLine("Current Directory: " + Directory.GetCurrentDirectory());
+
+        using (TextFieldParser parser = new TextFieldParser(filePath))
+        {
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters(",");
+
+            // Skip the header row if it exists
+            if (!parser.EndOfData)
+            {
+                parser.ReadFields();
+            }
+
+            while (!parser.EndOfData)
+            {
+                string[] fields = parser.ReadFields();
+                if(fields.Length == 2 && fields[0] == "OptimalCageCapacity")
+                {
+                    OptimalCageCapasity = int.Parse(fields[1]);
+                }
+                else if (fields.Length == 6)
+                {
+                    Animals animal = new Animals
+                    {
+                        Id = int.Parse(fields[0]),
+                        Species = fields[1],
+                        Sex = fields[2],
+                        Age = int.Parse(fields[3]),
+                        AverageDeathAge = int.Parse(fields[4]),
+                        IsPregnant = bool.Parse(fields[5])
+                    };
+                    AnimalsCsv.Add(animal);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid data format in the CSV file.");
+                }
+            }
+        }
+        return AnimalsCsv;
     }
 }

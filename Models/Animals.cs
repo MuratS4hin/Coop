@@ -6,6 +6,7 @@ public class Animals
     public string Species { get; set; }
     public string Sex { get; set; }
     public int Age { get; set; }
-    public bool IsPragnent { get; set; }
+    public int AverageDeathAge { get; set; }
+    public bool IsPregnant { get; set; }
 
 }
